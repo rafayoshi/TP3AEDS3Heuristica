@@ -42,6 +42,12 @@ int main() {
             break;
         }
     }
-    printf("%d", contador);
+    for(i = 0; i <= N; i++){
+        free(matriz[i]);
+    }
+    free(matriz);
+    FILE *arq = fopen("rodada.txt", "w");
+    fprintf(arq, "%d", contador);
+    fclose(arq);
     return 0;
 }

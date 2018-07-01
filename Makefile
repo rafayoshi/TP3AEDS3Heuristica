@@ -1,21 +1,20 @@
 CC = gcc
 CFLAGS = -Wall -Werror
-OBJ = main.o forcabruta.o
-DEPS = forcabruta.h
+OBJ = main.o
 VFLAGS = --leak-check=full --leak-resolution=high --show-reachable=yes --track-origins=yes
-EXEC = ./tp3fb < TesteHeuristica/entrada9.txt
-TIMED_RUN = time ./tp3fb
+EXEC = ./tp3h
+TIMED_RUN = time ./tp3h
 
-all: tp3fb
+all: tp3h
 
-tp3fb: $(OBJ)
+tp3h: $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o tp3fb forcabruta.
+	rm -f *.o tp3h
 
 valgrind:
 	valgrind $(VFLAGS) $(EXEC)
